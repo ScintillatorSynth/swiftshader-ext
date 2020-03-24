@@ -1,5 +1,7 @@
 #!/bin/sh
 
-cmake --build .
-cmake --install .
+XCPRETTY='xcpretty -f `xcpretty-travis-formatter`'
+
+cmake --build . | $XCPRETTY
+cmake --install . | $XCPRETTY
 
