@@ -27,7 +27,6 @@ endif()
 ExternalProject_Add(swiftshader
     PREFIX ext
     STEP_TARGETS install
-    EXCLUDE_FROM_ALL ON
     GIT_REPOSITORY https://github.com/google/swiftshader
     GIT_TAG ${SWIFTSHADER_GIT_TAG}
     GIT_PROGRESS ON
