@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.12)
+
 include(ExternalProject)
 
 set(SCIN_EXT_INSTALL_DIR "${PROJECT_BINARY_DIR}/install-ext" CACHE PATH "Scintallor External Dependencies")
