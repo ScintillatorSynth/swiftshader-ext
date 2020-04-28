@@ -9,6 +9,7 @@ matrix:
           compiler: clang
           env:
               - CC=clang-8 CXX=clang++-8
+        - os: windows
 
 before_install:
     - $TRAVIS_BUILD_DIR/.travis/before-install-$TRAVIS_OS_NAME.sh
