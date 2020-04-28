@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p $HOME/python3
-choco install python3 --params "/InstallDir:$HOME/python3"
-ls -la $HOME/python3
+ls -la /c/ProgramData/chocolatey/bin
+choco install python3
+ls -la /c/ProgramData/chocolatey/bin
 exit 4
 
