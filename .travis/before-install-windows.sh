@@ -7,5 +7,7 @@ echo '======== TAIL'
 tail -n100 /c/ProgramData/chocolatey/logs/chocolatey.log
 echo '======== FIND'
 find /c/ProgramData/chocolatey -name 'python*'
+echo '======== FIND TARGETDIR'
+find /c/Python38
 exit 4
 
