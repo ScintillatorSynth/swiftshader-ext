@@ -1,8 +1,11 @@
 #!/bin/bash
 
 choco install python3
-ls -la /c/ProgramData/chocolatey/bin
+echo '======== GREP'
 grep python3 /c/ProgramData/chocolatey/logs/chocolatey.log
+echo '======== TAIL'
 tail -n100 /c/ProgramData/chocolatey/logs/chocolatey.log
+echo '======== FIND'
+find /c/ProgramData/chocolatey -name 'python*'
 exit 4
 
