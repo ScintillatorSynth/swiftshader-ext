@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cmake -DPYTHON_EXECUTABLE=python3 ..
+cmake -DPYTHON_EXECUTABLE=`which python3` ..
 
