@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cmake -DPYTHON_EXECUTABLE=$HOME/python3/python.exe ..
+cmake -DPYTHON_EXECUTABLE=/c/Python38/python.exe ..
 
