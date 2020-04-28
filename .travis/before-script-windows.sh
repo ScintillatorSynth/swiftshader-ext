@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cmake ..
+PATH=/c/ProgramData/chocolatey/bin:$PATH cmake ..
 
