@@ -23,11 +23,18 @@ script:
 
 before_deploy:
     - mkdir -p $HOME/binaries/swiftshader-ext
-    - export TARBALL=$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.tgz
+    - export TARBALL='$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.tgz'
+    - export HASHFILE='$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.sha256'
     - cd $TRAVIS_BUILD_DIR/build/install-ext && tar czf $TARBALL *
-    - if [ $TRAVIS_OS_NAME = "windows" ]; then export SHASUM="certutil -hashfile $TARBALL SHA256 | sed -n '2,2p;2q'"; else export SHASUM="shasum -a 256 -b $TARBALL"; fi
-    - cd $HOME/binaries/swiftshader-ext && $SHASUM > $HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.sha256
-    - export S3_URL='http://scintillator-synth-coverage.s3-website-us-west-1.amazonaws.com/binaries/swiftshader-ext/swiftshader-ext-'$TRAVIS_OS_NAME'-'$TRAVIS_COMMIT'.tgz'
+    - |-
+        cd $HOME/binaries/swiftshader-ext
+        if [ $TRAVIS_OS_NAME = "windows" ]; then
+            certutil -hashfile $TARBALL SHA256 | sed -n '2,2p;2q' > $HASHFILE
+        else
+            shasum -a 256 -b $TARBALL > $HASHFILE
+        fi
+    - cd $HOME/binaries/swiftshader-ext && $SHASUM > 
+    - export S3_URL='http://scintillator-synth-coverage.s3-website-us-west-1.amazonaws.com/binaries/swiftshader-ext/'$TARBALL
     - export FWD_HTML='<html><head><meta http-equiv="refresh" content="0; url='$S3_URL'" /></head></html>'
     - echo $FWD_HTML > $HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-latest.html
 
