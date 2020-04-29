@@ -23,8 +23,8 @@ script:
 
 before_deploy:
     - mkdir -p $HOME/binaries/swiftshader-ext
-    - export TARBALL='$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.tgz'
-    - export HASHFILE='$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.sha256'
+    - export TARBALL=$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.tgz
+    - export HASHFILE=$HOME/binaries/swiftshader-ext/swiftshader-ext-$TRAVIS_OS_NAME-$TRAVIS_COMMIT.sha256
     - cd $TRAVIS_BUILD_DIR/build/install-ext && tar czf $TARBALL *
     - |-
         cd $HOME/binaries/swiftshader-ext
